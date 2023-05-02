@@ -1,11 +1,11 @@
 {
-    "wordsList": [
+    "jsonList": [
       {
         "word": "رهن",
         "translate": "river, stream"
       },
       {
-        "word": "انر",
+        "word": "ران",
         "translate": "fire; hell"
       },
       {
@@ -25,8 +25,8 @@
         "translate": "hit, strike; to give an example"
       },
       {
-        "word": "ققح",
-        "translate": "truth; rightful possession"
+        "word": "تيب",
+        "translate": "house, home"
       },
       {
         "word": "سان",
@@ -38,15 +38,15 @@
       },
       {
         "word": "محر",
-        "translate": "to have mercy, to have compassion"
-      },
-      {
-        "word": "ملع",
-        "translate": "knowledge"
+        "translate": "to have mercy"
       },
       {
         "word": "لوق",
         "translate": "speech; statement"
+      },
+      {
+        "word": "رصب",
+        "translate": "vision; sight"
       },
       {
         "word": "لام",
@@ -67,6 +67,126 @@
       {
         "word": "هجو",
         "translate": "face; outside, exterior"
+      },
+      {
+        "word": "ءام",
+        "translate": "water"
+      },
+      {
+        "word": "نيع",
+        "translate": "eye; spring of water"
+      },
+      {
+        "word": "دلو",
+        "translate": "child; boy"
+      },
+      {
+        "word": "قزر",
+        "translate": "provision, subsistence, wealth"
+      },
+      {
+        "word": "نحن",
+        "translate": "we"
+      },
+      {
+        "word": "اذه",
+        "translate": "this (masculine)"
+      },
+      {
+        "word": "هذه",
+        "translate": "this (feminine)"
+      },
+      {
+        "word": "كلذ",
+        "translate": "that (masculine)"
+      },
+      {
+        "word": "كلت",
+        "translate": "that (feminine)"
+      },
+      {
+        "word": "ىلع",
+        "translate": "on; upon"
+      },
+      {
+        "word": "ضعب",
+        "translate": "some, a few; portion of"
+      },
+      {
+        "word": "فيك",
+        "translate": "how"
+      },
+      {
+        "word": "دعب",
+        "translate": "after"
+      },
+      {
+        "word": "لبق",
+        "translate": "before"
+      },
+      {
+        "word": "نكل",
+        "translate": "but, however, yet"
+      },
+      {
+        "word": "قلخ",
+        "translate": "to create"
+      },
+      {
+        "word": "ىده",
+        "translate": "to guide"
+      },
+      {
+        "word": "لعج",
+        "translate": "to make"
+      },
+      {
+        "word": "ملع",
+        "translate": "to know"
+      },
+      {
+        "word": "دجو",
+        "translate": "to find"
+      },
+      {
+        "word": "فاخ",
+        "translate": "to fear"
+      },
+      {
+        "word": "لتق",
+        "translate": "to kill"
+      },
+      {
+        "word": "عجر",
+        "translate": "to return"
+      },
+      {
+        "word": "عمس",
+        "translate": "to hear"
+      },
+      {
+        "word": "رظن",
+        "translate": "to look"
+      },
+      {
+        "word": "لاق",
+        "translate": "said, say, tell"
+      },
+      {
+        "word": "ىزج",
+        "translate": "to reward"
+      },
+      {
+        "word": "دعو",
+        "translate": "to promise"
+      },
+      {
+        "word": "ءاج",
+        "translate": "to come"
+      },
+      {
+        "word": "ملظ",
+        "translate": "to oppress, to wrong, to do evil"
       },
       {
         "word": "رفك",

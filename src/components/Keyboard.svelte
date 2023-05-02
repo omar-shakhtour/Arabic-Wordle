@@ -2,76 +2,61 @@
   import Key from "./Key.svelte";
   import {
     board,
-    gameInfo,
+    userInput,
     colors,
-    GAME_WORD,
+    wordle,
     guess,
-    gameOver,
+    levelFailed,
   } from "../store";
-  const firstRow = ["ض", "ص", "ث", "ق", "ف", "غ", "ع", "ه", "خ", "ح", "ج", "د"];
-  const secondRow = ["ش", "س", "ي", "ب", "ل", "ا", "ت", "ن", "م", "ك", "ذ"];
-  const thirdRow = [
-    "ENTER",
-    "ئ",
-    "ء",
-    "ؤ",
-    "ر",
-    "ى",
-    "ة",
-    "و",
-    "ز",
-    "ط",
-    "ظ",
-    "DEL",
+
+  const rows = [
+    ["ض", "ص", "ث", "ق", "ف", "غ", "ع", "ه", "خ", "ح", "ج", "د"],
+    ["ش", "س", "ي", "ب", "ل", "ا", "ت", "ن", "م", "ك", "ذ"],
+    ["ENTER", "ئ", "ء", "ؤ", "ر", "ى", "ة", "و", "ز", "ط", "ظ", "DEL"],
   ];
 
   const delButton = () => {
-    if ($gameInfo.char === 0) return;
+    if ($userInput.char === 0) return;
 
-    gameInfo.update((prev) => {
-      return {
-        char: prev.char - 1,
-        attempt: prev.attempt,
-      };
-    });
+    userInput.update((prev) => ({
+      char: prev.char - 1,
+      playerGuess: prev.playerGuess,
+    }));
 
     board.update((prevBoard) => {
-      const newBoard = prevBoard;
-      newBoard[$gameInfo.attempt][2 - $gameInfo.char] = "";
+      const newBoard = [...prevBoard];
+      newBoard[$userInput.playerGuess][2 - $userInput.char] = "";
       return newBoard;
     });
   };
 
   const enterButton = () => {
-    let { attempt, char } = $gameInfo;
+    let { playerGuess, char } = $userInput;
     if (char !== 3) {
       return;
     } else {
-      gameInfo.set({
-        attempt: attempt + 1,
-        char: 0,
-      });
+      userInput.set({ playerGuess: playerGuess + 1, char: 0 });
 
-      const prevAttempt = $gameInfo.attempt - 1;
-      const newColorsBoard = $colors;
+      const previousPlayerGuess = $userInput.playerGuess - 1;
+      const newColorsBoard = [...$colors];
 
       for (let i = 0; i < 3; i++) {
-        let char = $board[prevAttempt][i];
+        let char = $board[previousPlayerGuess][i];
         guess.update((prevChars) => prevChars + char);
 
-        if ($GAME_WORD[i] === char) {
-          newColorsBoard[prevAttempt][i] = "correct";
-        } else if ($GAME_WORD.includes(char)) {
-          newColorsBoard[prevAttempt][i] = "almost";
+        if ($wordle[i] === char) {
+          newColorsBoard[previousPlayerGuess][i] = "correct";
+        } else if ($wordle.includes(char)) {
+          newColorsBoard[previousPlayerGuess][i] = "almost";
         } else {
-          newColorsBoard[prevAttempt][i] = "incorrect";
+          newColorsBoard[previousPlayerGuess][i] = "incorrect";
         }
       }
       colors.set(newColorsBoard);
 
       // check if the game is over
-      if ($guess === $GAME_WORD || prevAttempt === 4) {
-        gameOver.set(true);
+      if ($guess === $wordle || previousPlayerGuess === 4) {
+        levelFailed.set(true);
       } else {
         guess.set("");
       }
@@ -84,52 +69,56 @@
     } else if (key == "ENTER") {
       enterButton();
     } else {
-      let { attempt, char } = $gameInfo;
+      let { playerGuess, char } = $userInput;
       if (char > 2) return;
 
       board.update((prevBoard) => {
-        const newBoard = prevBoard;
-        newBoard[attempt][2 - char++] = key;
+        const newBoard = [...prevBoard];
+        newBoard[playerGuess][2 - char++] = key;
         return newBoard;
       });
 
-      gameInfo.set({ attempt, char });
+      userInput.set({ playerGuess, char });
     }
   };
 </script>
 
 <div class="keyboard">
-  <div class="row">
-    {#each firstRow as char}
-      <Key {char} {keyPress} />
-    {/each}
-  </div>
-
-  <div class="row">
-    {#each secondRow as char}
-      <Key {char} {keyPress} />
-    {/each}
-  </div>
-
-  <div class="row">
-    {#each thirdRow as char}
-      <Key {char} {keyPress} />
-    {/each}
-  </div>
+  {#each rows as row}
+    <div class="row">
+      {#each row as char}
+        <Key {char} {keyPress} />
+      {/each}
+    </div>
+  {/each}
 </div>
 
 <style>
   .keyboard {
-    position: fixed;
     width: fit-content;
-    bottom: 20px;
-    left: 50%;
-    transform: translate(-24%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .row {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+  }
+  @media screen and (max-width: 1115px) {
+    .keyboard {
+      margin: auto;
+    }
+  }
+  @media screen and (max-width: 546px) {
+    .keyboard {
+      margin: auto;
+      padding-top: 20px;
+      flex-direction: row;
+    }
+    .row {
+      flex-direction: column;
+    }
   }
 </style>

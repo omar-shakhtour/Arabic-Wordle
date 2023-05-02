@@ -1,7 +1,8 @@
 import { writable } from "svelte/store"
+import json from "./components/words.json";
 
-export function createGrid(){
-    const grid = [
+export function createMatrix(){
+    const matrix = [
         ['','',''],
         ['','',''],
         ['','',''],
@@ -9,25 +10,26 @@ export function createGrid(){
         ['','','']
     ];
 
-    /** Use the code below for dynamic grid to easily change
-     * for (let i = 0; i<6; i++){
-        grid.push([]);
-        for( let x = 0; x < 5; x++) grid[i][x] = "";
-    }
-    **/
-
-    return grid;
+    return matrix;
 }
 
-export const GAME_WORD = writable("باب");
+/** Use writable from Svelte to make matrix, and export it so it's available in other components */
+export const board = writable(createMatrix());
+
+const wordsList = json.jsonList.map((item) => ({
+    word: item.word,
+    translate: item.translate,
+}));
+
+const randomNum = Math.floor(Math.random() * wordsList.length);
+
+export const wordle = writable(wordsList[randomNum].word);
+export const wordle_translate = writable(wordsList[randomNum].translate);
 export const guess = writable("");
-export const colors = writable(createGrid());
-export const gameOver = writable(false);
+export const colors = writable(createMatrix());
+export const levelFailed = writable(false);
 
-export const gameInfo = writable({
+export const userInput = writable({
     char: 0,
-    attempt: 0,
+    playerGuess: 0,
 });
-
-/** Use writable from Svelte to make grid, and export it so it's available in other components */
-export const board = writable(createGrid());

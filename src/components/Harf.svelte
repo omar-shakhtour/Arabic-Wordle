@@ -20,25 +20,25 @@
     width: 90px;
     height: 80px;
     color: white;
-    background-color: var(--bg);
+    background-color: var(--colorOne);
     margin: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 55px;
     border-radius: 5px;
-    transition: background-color 0.9s;
+    transition: background-color 0.5s;
   }
 
   .correct {
-    background-color: var(--green);
+    background-color: var(--correctColor);
   }
 
   .almost {
-    background-color: var(--orange);
+    background-color: var(--highlightColor);
   }
 
   .incorrect {
-    background-color: var(--dark);
+    background-color: var(--colorTwo);
   }
 </style>
