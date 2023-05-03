@@ -1,7 +1,6 @@
 # Quranic Wordle Game
 
-## Application Demo:
-https://quranic-arabic-wordle.vercel.app/
+## Application Demo: https://quranic-arabic-wordle.vercel.app/
 
 ---
 
