@@ -1,22 +1,16 @@
-# Quranic Wordle Game
+# Arabic Wordle Game
 
-## Application Demo: https://quranic-arabic-wordle.vercel.app/
+This application was built as my senior project for my BA in Computer Science. I was tasked with developing a gamified educational application. I decided to build the classic Worlde game but for the Arabic language. This application is great for one seeking to improve their vocabulary. The game uses three-letter Arabic root words, which should help one significantly expand their vocabulary, as the Arabic language is based on root words.
 
----
+## Application Demo
 
-# svelte app
+https://quranic-arabic-wordle.vercel.app/
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+## Built With
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+* Svelte
+* JavaScript
+* HTML/CSS
 
 ## Get started
 
@@ -37,25 +31,10 @@ Navigate to [localhost:8080](http://localhost:8080). You should see your app run
 
 By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
+## Authors
 
-## Building and running in production mode
+* **Omar Shakhtour** - [omar-shakhtour](https://github.com/omar-shakhtour)
 
-To create an optimised version of the app:
+## License
 
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
+This project is licensed under the MIT License
